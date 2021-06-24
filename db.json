@@ -1,16 +1,3 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "Lorem ipsum",
-      "time": "12.12.1212",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, officia. Quod quia sunt ipsam inventore saepe! Blanditiis, aut laudantium laboriosam adipisci tempore suscipit. Deserunt blanditiis sint, incidunt magni quidem soluta."
-    },
-    {
-      "id": 2,
-      "title": "Lorem ipsum",
-      "time": "12.12.1212",
-      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, officia. Quod quia sunt ipsam inventore saepe! Blanditiis, aut laudantium laboriosam adipisci tempore suscipit. Deserunt blanditiis sint, incidunt magni quidem soluta."
-    }
-  ]
+  "posts": []
 }
