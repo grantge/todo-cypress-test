@@ -1,3 +1,10 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "title": "buy a coffee",
+      "time": "5.6.2021",
+      "description": "buy a cofee at 3 pm",
+      "id": 1
+    }
+  ]
 }

@@ -10,6 +10,9 @@ const btn = document.querySelector('.btn');
 // functions
 
 function getReq() {
+  todoName.value = '';
+  todoDescription.value = '';
+
   axios
     .get('http://localhost:4000/api/posts')
     .then((res) => {
@@ -19,10 +22,10 @@ function getReq() {
       posts.forEach((todos) => {
         field.innerHTML += `
                 <div class="ui card message" style="width: 440px">
-                <i class="close icon btn" onclick="activateModal()"></i>
+                <i class="close icon btn" onclick="activateModal()" style="color: #000000"></i>
                 <i
                   class="pencil alternate icon close"
-                  style="margin-right: 25px"
+                  style="margin-right: 25px; color: #008080"
                 ></i>
                 <div class="content">
                 <div class="header">${todos.title}</div>
@@ -44,8 +47,8 @@ function getReq() {
 
 btn.addEventListener('click', (e) => {
   e.preventDefault();
+  field.innerHTML = '';
 
-  getReq();
   // POST request
 
   axios
@@ -65,6 +68,8 @@ btn.addEventListener('click', (e) => {
     .catch(function (error) {
       console.log(error);
     });
+
+  getReq();
 });
 
 getReq();
