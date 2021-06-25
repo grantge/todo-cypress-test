@@ -5,13 +5,13 @@ const todoDescription = document.querySelector('.descriptionName');
 
 const btn = document.querySelector('.btn');
 
-// REST API
-
-// functions
+getReq();
 
 function getReq() {
   todoName.value = '';
   todoDescription.value = '';
+
+  // GET request
 
   axios
     .get('http://localhost:4000/api/posts')
@@ -21,14 +21,15 @@ function getReq() {
 
       posts.forEach((todos) => {
         field.innerHTML += `
-                <div class="ui card message" style="width: 440px">
-                <i class="close icon btn" onclick="activateModal()" style="color: #000000"></i>
+                <div data-id=${todos.id} class="ui card message" style="width: 440px; word-wrap: break-word;" >
+                <i class="close icon btn" style="color: #000000" onclick="deleteTodo(event)"></i>
                 <i
-                  class="pencil alternate icon close"
-                  style="margin-right: 25px; color: #008080"
+                  class="check circle icon close"
+                  style="margin-right: 20px; color: #008080"
+                  onclick="completeTodo(event)"
                 ></i>
                 <div class="content">
-                <div class="header">${todos.title}</div>
+                <div class="header" style="padding-right: 30px;">${todos.title}</div>
                 <div class="meta">${todos.time}</div>
                 <div class="description">
                   <p>
@@ -55,7 +56,7 @@ btn.addEventListener('click', (e) => {
     .post('/api/posts', {
       title: `${todoName.value}`,
       time:
-        new Date().getDay() +
+        new Date().getDate() +
         '.' +
         (new Date().getMonth() + 1) +
         '.' +
@@ -72,4 +73,15 @@ btn.addEventListener('click', (e) => {
   getReq();
 });
 
-getReq();
+function completeTodo(event) {
+  event.srcElement.parentElement.style.textDecoration = 'line-through';
+  event.srcElement.parentElement.style.backgroundColor = '#A0A0A0';
+}
+
+function deleteTodo(event) {
+  console.log(event.target.parentElement.dataset.id);
+
+  axios.delete(`/api/posts/${event.target.parentElement.dataset.id}`);
+  field.innerHTML = '';
+  getReq();
+}
