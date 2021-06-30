@@ -3,15 +3,16 @@ const field = document.querySelector('.column-2');
 const todoName = document.querySelector('.todoName');
 const todoDescription = document.querySelector('.descriptionName');
 
+const warningTodo = document.querySelector('.warningTodo');
+const warningDescription = document.querySelector('.warningDescription');
+
 const btn = document.querySelector('.btn');
 
-getReq();
+// GET request
 
 function getReq() {
   todoName.value = '';
   todoDescription.value = '';
-
-  // GET request
 
   axios
     .get('http://localhost:4000/api/posts')
@@ -46,16 +47,13 @@ function getReq() {
     });
 }
 
-btn.addEventListener('click', (e) => {
-  e.preventDefault();
-  field.innerHTML = '';
+// POST request
 
-  // POST request
-
+function postReq() {
   axios
     .post('/api/posts', {
       title: `${todoName.value}`,
-      time:
+      timinnerHTMLe:
         new Date().getDate() +
         '.' +
         (new Date().getMonth() + 1) +
@@ -69,19 +67,51 @@ btn.addEventListener('click', (e) => {
     .catch(function (error) {
       console.log(error);
     });
+}
 
-  getReq();
-});
+// Check todos
 
 function completeTodo(event) {
   event.srcElement.parentElement.style.textDecoration = 'line-through';
   event.srcElement.parentElement.style.backgroundColor = '#A0A0A0';
 }
 
-function deleteTodo(event) {
-  console.log(event.target.parentElement.dataset.id);
+// DELETE request
 
+function deleteTodo(event) {
   axios.delete(`/api/posts/${event.target.parentElement.dataset.id}`);
   field.innerHTML = '';
   getReq();
 }
+
+// Validation
+
+function validation(firstInput, secondInput, firstMessage, secondMessage) {
+  if (firstInput.value.length < 3 && secondInput.value.length < 3) {
+    firstMessage.style.display = 'block';
+    secondMessage.style.display = 'block';
+  } else if (firstInput.value.length < 3 && secondInput.value.length > 3) {
+    firstMessage.style.display = 'block';
+    secondMessage.style.display = 'table-column';
+  } else if (firstInput.value.length > 3 && secondInput.value.length < 3) {
+    firstMessage.style.display = 'table-column';
+    secondMessage.style.display = 'block';
+  } else if (firstInput.value.length > 3 && secondInput.value.length > 3) {
+    postReq();
+  }
+}
+
+// Show todos
+
+getReq();
+
+// Listener
+
+btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  field.innerHTML = '';
+
+  validation(todoName, todoDescription, warningTodo, warningDescription);
+
+  getReq();
+});
