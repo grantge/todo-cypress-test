@@ -97,6 +97,8 @@ function validation(firstInput, secondInput, firstMessage, secondMessage) {
     firstMessage.style.display = 'table-column';
     secondMessage.style.display = 'block';
   } else if (firstInput.value.length > 3 && secondInput.value.length > 3) {
+    firstMessage.style.display = 'table-column';
+    secondMessage.style.display = 'table-column';
     postReq();
   }
 }
