@@ -1,3 +1,16 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "title": "buy a coffee",
+      "timinnerHTMLe": "31.7.2021",
+      "description": "some a good coffee",
+      "id": 1
+    },
+    {
+      "title": "buy a coffee",
+      "timinnerHTMLe": "31.7.2021",
+      "description": "some a good coffee",
+      "id": 2
+    }
+  ]
 }
