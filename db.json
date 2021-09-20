@@ -2,15 +2,33 @@
   "posts": [
     {
       "title": "buy a coffee",
-      "timinnerHTMLe": "31.7.2021",
+      "time": "20.9.2021",
       "description": "some a good coffee",
       "id": 1
     },
     {
       "title": "buy a coffee",
-      "timinnerHTMLe": "31.7.2021",
+      "time": "20.9.2021",
       "description": "some a good coffee",
       "id": 2
+    },
+    {
+      "title": "buy a coffee",
+      "time": "20.9.2021",
+      "description": "some a good coffee",
+      "id": 3
+    },
+    {
+      "title": "buy a coffee",
+      "time": "20.9.2021",
+      "description": "some a good coffee",
+      "id": 4
+    },
+    {
+      "title": "buy a coffee",
+      "time": "20.9.2021",
+      "description": "some a good coffee",
+      "id": 5
     }
   ]
 }

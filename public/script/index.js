@@ -30,9 +30,9 @@ function getReq() {
                   onclick="completeTodo(event)"
                 ></i>
                 <div class="content">
-                <div class="header" style="padding-right: 30px;">${todos.title}</div>
-                <div class="meta">${todos.time}</div>
-                <div class="description">
+                <div class="header" style="padding-right: 30px;" id="todoName">${todos.title}</div>
+                <div class="meta" id="todoDate">${todos.time}</div>
+                <div class="description" id="todoDescription">
                   <p>
                     ${todos.description}
                   </p>
@@ -53,7 +53,7 @@ function postReq() {
   axios
     .post('/api/posts', {
       title: `${todoName.value}`,
-      timinnerHTMLe:
+      time:
         new Date().getDate() +
         '.' +
         (new Date().getMonth() + 1) +

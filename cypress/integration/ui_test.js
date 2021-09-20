@@ -1,6 +1,3 @@
-// const { expect } = require("chai")
-// const { assert } = require("chai")
-
 describe('UI testing', () => {
     it('visit test website and test UI', () => {
         cy.visit('localhost:4000')
@@ -12,7 +9,5 @@ describe('UI testing', () => {
         cy.get('.second-label').should('have.text', "Description")
         // find button name
         cy.get('button.ui.button.btn').should('have.text', 'Submit')
-
-       
     })
 })
